@@ -1,0 +1,201 @@
+.hero{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.5rem;
+    width: 100vw; 
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.food_main_img{
+    position: absolute;
+    height: 25rem;
+    width: 40rem;
+    right: 1rem;
+    top: 4rem;
+    z-index: 998;
+}
+
+.left_h{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.right_h{
+    display: flex;
+}
+
+.hero_text{
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    padding-top: 7rem;
+    font-family: 'poppins',sans-serif;
+    gap: 0.5rem;
+}
+
+.hero_text .main_text {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.hero_text .sub_text {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.hero_text .description {
+    width: 60%;
+}
+
+.gomenu{
+    background-color: rgb(193, 244, 118);
+    font-weight: bold;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.5rem;
+    border-radius: 25px;
+    border: 3px solid rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4); 
+}
+
+.gomenu:hover {
+    background-color: rgb(150, 195, 83); 
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.8);  
+}
+
+.offers{
+    display: grid;
+    grid-template-columns:  repeat(4,1fr);
+    column-gap: 2rem;
+    color: white;
+    font-weight: bold;
+    padding-right: 2rem;
+}
+
+.offers div{
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    background-color: #8b909c;
+    border-radius: 25px;
+    border: 3px solid rgba(0, 255, 0, 0.8);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.4);  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+}
+
+.offers div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.8);
+    cursor: pointer;
+}
+
+.offers div span:nth-child(2){
+    font-size: 1.5rem;
+    color: orange;
+}
+
+.offers div span:nth-child(3){
+    font-size: 1.3rem;
+    color: yellow;
+}
+
+.offers div img{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+
+@media screen and (max-width:768px) {
+    .offers {
+        grid-template-columns: repeat(2, 1fr); 
+        row-gap: 1rem;
+        column-gap: 0.5rem;
+        padding-right: 2rem;
+    }
+
+    .offers div {
+        border: 1.5px solid rgba(0, 255, 0, 0.8);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), 0 0 10px rgba(0, 255, 0, 0.4);
+    }
+
+    .offers div:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 255, 0, 0.6);
+    }
+
+    .offers div span:nth-child(2) {
+        font-size: 1rem;
+        color: orange;
+    }
+
+    .offers div span:nth-child(3) {
+        font-size: 0.7rem;
+        color: yellow;
+    }
+
+    .hero_text {
+        padding-left: 1rem;
+        gap: 1rem;
+    }
+
+    .hero_text .main_text, 
+    .hero_text .sub_text {
+        font-size: 2.5rem;
+    }
+
+    .hero_text .description {
+        width: 100%; 
+        font-size: 0.9rem; 
+    }
+
+    .gomenu {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+        border-radius: 20px;
+        box-shadow: 0 0 8px rgba(255, 0, 0, 0.6), 0 0 16px rgba(255, 0, 0, 0.4);
+    }
+
+    .gomenu:hover {
+        transform: scale(1.03);
+    }
+
+    .food_main_img {
+        position: relative; 
+        height: 20rem;
+        width: 100%;
+        max-width: 30rem; 
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+
+    .left_h, .right_h {
+        flex: 1; 
+        justify-content: center;
+    }
+
+    
+}
+
+
+@media screen and (max-width:1100px) {
+    .food_main_img {
+        position: relative; 
+        height: 20rem;
+        width: 30rem;
+        top: 0; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        z-index: 999;
+    }
+}

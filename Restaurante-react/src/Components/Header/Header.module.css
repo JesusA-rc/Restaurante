@@ -1,0 +1,116 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 2rem 0.2rem 2rem;
+    align-items: center;
+    background-color: white;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1000;
+    width: 100vw; 
+    max-width: 100%;
+}
+
+.logo{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+}
+
+.restaurant_tittle_logo{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-family: 'poppins',sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.header_nav{
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    font-family: 'poppins',sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: orange;
+}
+
+.header_nav li:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.menu_toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .header_nav {
+        position: absolute;
+        top: 0rem; 
+        right: 0;
+        background-color: rgb(143, 143, 143);
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        z-index: 1;
+        gap: 0;
+        max-height: 0; /* Ocultar inicialmente */
+        overflow: hidden; 
+        transform: translateY(-10px); 
+        transition: max-height 0.3s ease,  transform 0.3s ease; 
+        border-radius: 5px;
+    }
+
+    .header_nav.active {
+        max-height: 500px; 
+       
+        transform: translateY(0); 
+    }
+
+    .header_nav li {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .menu_toggle {
+        display: block; 
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: orange;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 2;
+    }
+
+    .menu_toggle.hideButton {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        padding: 0.5rem 2rem 0.2rem 2rem;
+        align-items: center;
+        background-color: white;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+      
+}
