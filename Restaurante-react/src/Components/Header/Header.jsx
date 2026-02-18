@@ -1,9 +1,9 @@
-import React,{useState} from 'react';
+import {useState} from 'react';
 import styles from './Header.module.css';
 import logoimg from '/src/assets/logoimg.jpg';
 import { Link } from "react-scroll";
 import { NavLink } from 'react-router-dom';
-import Menu from '/src/Pages/Menu/Menu';
+import PropTypes from 'prop-types';
 
 const Header = ({typeNavegation}) => {
 
@@ -21,7 +21,6 @@ const Header = ({typeNavegation}) => {
       </div>
 
       {/*Boton para abrir el menu en responsive*/}
-
       <button className={`${styles.menu_toggle} ${isMenuOpen ? styles.hideButton : ''}`} onClick={handleMenuToggle}>
         ☰
       </button>
@@ -38,7 +37,6 @@ const Header = ({typeNavegation}) => {
           }
           
         </li>
-
         {
           typeNavegation === "Link" ? 
           (<li>
@@ -53,7 +51,6 @@ const Header = ({typeNavegation}) => {
               <Link to='about' spy={true} smooth={true} onClick={()=> setIsMenuOpen(false)}>About us</Link>
             </li>) : ''
         }
-
         <li><NavLink to="/menu" className="navlink">Menu</NavLink></li>
       </ul>
     </div>
@@ -61,3 +58,7 @@ const Header = ({typeNavegation}) => {
 }
 
 export default Header
+
+Header.propTypes = {
+  typeNavegation: PropTypes.string.isRequired,
+};

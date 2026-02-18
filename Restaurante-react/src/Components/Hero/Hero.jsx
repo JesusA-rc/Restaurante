@@ -1,6 +1,6 @@
-import React from 'react'
 import styles from './Hero.module.css'
 import Header from '../Header/Header'
+import { NavLink } from 'react-router-dom'
 import tacospastor from '/src/assets/tacospastor.jpg'
 import orangechicken from '/src/assets/orangechicken.jpg'
 import sushi from '/src/assets/sushi.jpg'
@@ -18,9 +18,9 @@ const Hero = () => {
           <span className={styles.description}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam maxime, doloremque deserunt illum, rem odio delectus magni nulla, laboriosam reprehenderit accusantium eum? Explicabo deserunt quo cupiditate molestiae praesentium, voluptatem fugiat!
           </span>
-          <div className={styles.gomenu}>
+          <NavLink to="/menu" className={styles.gomenu}>
             <span>Explore our menu</span>
-          </div>
+          </NavLink>
           <div className={styles.offers}>
             <div>
               <img src={tacospastor} alt="tacos pastor" />
