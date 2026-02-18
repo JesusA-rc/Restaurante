@@ -58,7 +58,10 @@
         position: absolute;
         top: 0rem; 
         right: 0;
-        background-color: rgb(143, 143, 143);
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
         flex-direction: column;
         align-items: center;
         width: fit-content;
@@ -67,14 +70,14 @@
         max-height: 0; /* Ocultar inicialmente */
         overflow: hidden; 
         transform: translateY(-10px); 
-        transition: max-height 0.3s ease,  transform 0.3s ease; 
-        border-radius: 5px;
+        transition: max-height 0.3s ease,  transform 0.3s ease, background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease, padding 0.3s ease; 
     }
 
     .header_nav.active {
         max-height: 500px; 
-       
         transform: translateY(0); 
+        border-radius: 8px; 
+        padding: 1rem 0; 
     }
 
     .header_nav li {
@@ -94,10 +97,8 @@
         top: 1rem;
         right: 1rem;
         z-index: 2;
-    }
-
-    .menu_toggle.hideButton {
-        display: none;
+        transition: transform 0.3s ease;
+        font-weight: bold;
     }
 
     .header {

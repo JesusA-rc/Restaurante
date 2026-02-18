@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styles from './Header.module.css';
 import logoimg from '/src/assets/logoimg.jpg';
 import { Link } from "react-scroll";
@@ -13,6 +13,20 @@ const Header = ({typeNavegation}) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMenuOpen]);
+
   return (
     <div className={styles.header}>
       <div className={styles.restaurant_tittle_logo}>
@@ -20,15 +34,11 @@ const Header = ({typeNavegation}) => {
         <span>food</span>
       </div>
 
-      {/*Boton para abrir el menu en responsive*/}
-      <button className={`${styles.menu_toggle} ${isMenuOpen ? styles.hideButton : ''}`} onClick={handleMenuToggle}>
-        ☰
+      <button className={styles.menu_toggle} onClick={handleMenuToggle}>
+        {isMenuOpen ? 'X' : '☰'}
       </button>
 
       <ul className={`${styles.header_nav} ${isMenuOpen ? styles.active : ''}`}>
-        {
-          isMenuOpen? (<li onClick={handleMenuToggle}>☰ </li>) : ''
-        }
         <li>
           {
             typeNavegation === "Link" ? 
