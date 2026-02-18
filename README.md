@@ -32,13 +32,19 @@ Vista del menu.
 
 ![image](https://github.com/user-attachments/assets/845f040c-d7c8-4e9d-9261-6eb58b475fef)
 
-![image](https://github.com/user-attachments/assets/2ff1b4fc-6fa8-4afa-a2f5-ef16ed8bfaa0)
+<img width="373" height="855" alt="image" src="https://github.com/user-attachments/assets/cb32498b-5d2d-4554-9882-e4f24d56e61a" />
+
 
 Vista las comidas por categoria.
 
 ![image](https://github.com/user-attachments/assets/0e71d36c-4e65-4f03-a7de-175d4aa8d2b8)
 
 ![image](https://github.com/user-attachments/assets/df353c3f-92dc-4891-ac9b-9ecc698817c1)
+
+<img width="1833" height="851" alt="image" src="https://github.com/user-attachments/assets/16f08182-d028-4b47-96da-1a6d45fb2e6f" />
+
+<img width="380" height="842" alt="image" src="https://github.com/user-attachments/assets/cd5a9add-80bb-4058-b9dc-2cfa6c07c6d6" />
+
 
 Footer.
 
