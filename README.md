@@ -13,17 +13,19 @@ MySQL: Se utilizó la base de datos MySQL para almacenar y gestionar la informac
 
 Vista del home.
 
-![Untitled design](https://github.com/user-attachments/assets/b725cdd5-e9d5-4eff-a81b-e398dccc733b)
+<img width="1812" height="816" alt="image" src="https://github.com/user-attachments/assets/52fcb466-ed85-45f6-b4ac-00e7ab1f70c1" />
 
-![image](https://github.com/user-attachments/assets/a52a6183-be1b-40e3-859c-96ca0846b165)
+<img width="1803" height="858" alt="image" src="https://github.com/user-attachments/assets/512759da-2866-4d3c-8cd1-e636ea702146" />
 
-![image](https://github.com/user-attachments/assets/05201672-b643-43c8-b275-52981b120185)
+<img width="762" height="428" alt="image" src="https://github.com/user-attachments/assets/1ea1d277-acfb-40fd-909a-0da98e4b2f8a" />
 
-![image](https://github.com/user-attachments/assets/9317928e-f61f-4833-a6ac-6a3b3b4eb821)
+<img width="1820" height="822" alt="image" src="https://github.com/user-attachments/assets/194733b8-bd72-4a29-a434-af0776836246" />
 
-![image](https://github.com/user-attachments/assets/80460fb2-f106-46df-be7a-f9af0d9d8629)
+<img width="767" height="630" alt="image" src="https://github.com/user-attachments/assets/75f6726a-8746-4e70-baec-ee2c29ca3094" />
 
-![image](https://github.com/user-attachments/assets/66304025-4a3e-4403-ac40-3d901d362903)
+<img width="772" height="863" alt="image" src="https://github.com/user-attachments/assets/0160a753-565a-4483-a136-7d160a50bb7c" />
+
+
 
 
 Vista del menu.
@@ -37,5 +39,9 @@ Vista las comidas por categoria.
 ![image](https://github.com/user-attachments/assets/0e71d36c-4e65-4f03-a7de-175d4aa8d2b8)
 
 ![image](https://github.com/user-attachments/assets/df353c3f-92dc-4891-ac9b-9ecc698817c1)
+
+Footer.
+
+<img width="767" height="197" alt="image" src="https://github.com/user-attachments/assets/e06034c5-eb94-49cb-b9c2-0ab2592ac573" />
 
 
