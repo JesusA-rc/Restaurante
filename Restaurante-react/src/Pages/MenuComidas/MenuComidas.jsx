@@ -1,35 +1,36 @@
-import React, {useEffect, useCallback} from 'react';
+import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import styles from './MenuComidas.module.css';
-import Header from '/src/components/Header/Header';
-import { useSearchParams,Navigate } from 'react-router-dom';
+import Header from '/src/Components/Header/Header';
+import { useSearchParams, Navigate } from 'react-router-dom';
 import Footer from '/src/Components/Footer/Footer'
 import { fetchData } from '/src/config.js';
 import FoodItem from '/src/Components/FoodItem/FoodItem';
 import FoodModalController from '../../Components/FoodModal/FoodModalController';
 
-const foodsData =  await fetchData('/api/getFoods');
-
 export const MenuComidas = () => {
   const [searchParams] = useSearchParams();
-  const [visibleItems, setVisibleItems] = React.useState({});
+
+  const idCategory = searchParams.get('id_category');
+
+  const { data: foodsData, isLoading, isError } = useQuery({
+    queryKey: ['foods'],
+    queryFn: () => fetchData('/api/getFoods'),
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);  
   }, []);
 
-  const handleVisibility = useCallback((id, isVisible) => {
-    if (isVisible) {
-        setVisibleItems((prev) => ({ ...prev, [id]: true }));
-    }
-  }, []);
-
-  const idCategory = searchParams.get('id_category');
   if (!idCategory) {
     return <Navigate to="/menu" />;
   }
 
-  const filteredFoods = foodsData.filter(item => item.id_category === parseInt(idCategory));
-  const nameCategory = filteredFoods[0]?.name_category || "Unknown Category";
+  if (isLoading) return <div className={styles.loading}>Cargando platos...</div>;
+  if (isError) return <div className={styles.error}>Error al cargar los platos</div>;
+
+  const filteredFoods = foodsData?.filter(item => item.id_category === parseInt(idCategory)) || [];
+  const nameCategory = filteredFoods[0]?.name_category || "Platos";
 
   return (
     <>
@@ -44,9 +45,7 @@ export const MenuComidas = () => {
                       <FoodItem 
                         key={item.id_food}
                         item={item}
-                        handleVisibility={handleVisibility}
                         handleFoodClick={handleFoodClick}
-                        isVisibleProp={visibleItems[item.id_food]}
                       />
                     ))
                   }

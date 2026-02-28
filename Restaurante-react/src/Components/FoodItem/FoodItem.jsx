@@ -1,25 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../../Pages/MenuComidas/MenuComidas.module.css';
 import { useOnScreen } from "/src/Components/useOnScreen/useOnScreen";
 import PropTypes from 'prop-types';
 
-const FoodItem = ({ item, handleVisibility, handleFoodClick }) => {
+const FoodItem = ({ item, handleFoodClick }) => {
   const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
 
   useEffect(() => {
-    handleVisibility(item.id_food, isVisible);
-  }, [isVisible, item.id_food, handleVisibility]);
+    if (isVisible) {
+      setHasBeenVisible(true);
+    }
+  }, [isVisible]);
 
   return (
     <div 
       ref={ref} 
-      className={`${styles.item_food} ${isVisible ? styles.visible : ""}`} 
+      className={`${styles.item_food} ${hasBeenVisible ? styles.visible : ""}`} 
       key={item.id_food}
       onClick={() => handleFoodClick(item)}
     >
       <img src={item.image_url} alt={item.name} />
-      <span>{item.name} | ${item.price}</span>
-      <span>{item.description}</span>
+      <div className={styles.food_info}>
+        <span className={styles.food_name}>{item.name} | ${item.price}</span>
+        <span className={styles.food_desc}>{item.description}</span>
+      </div>
     </div>
   );
 };
@@ -32,7 +37,6 @@ FoodItem.propTypes = {
       description: PropTypes.string.isRequired,
       image_url: PropTypes.string.isRequired,
     }).isRequired,
-    handleVisibility: PropTypes.func.isRequired,
     handleFoodClick: PropTypes.func.isRequired,
   };
 

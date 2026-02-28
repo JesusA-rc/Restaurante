@@ -5,12 +5,11 @@ import Home from './Pages/Home/Home';
 import Menu from './Pages/Menu/Menu';
 import { MenuComidas } from './Pages/MenuComidas/MenuComidas';
 
-function App() {
-  const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <>
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
 
@@ -20,7 +19,6 @@ function App() {
 
           <Route path="/menucomidas" element={<MenuComidas />} />
         </Routes>
-      </>
     </QueryClientProvider>
   )
 }
