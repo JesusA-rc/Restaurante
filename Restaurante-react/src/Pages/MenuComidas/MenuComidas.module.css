@@ -14,10 +14,52 @@
     row-gap: 6rem;
 }
 
-.menu h1{
+.title_category {
     text-align: center;
-    padding-bottom: 2rem;
-    font-family: 'poppins',sans-serif;
+    padding-bottom: 1rem;
+    font-family: 'poppins', sans-serif;
+    font-size: 2.5rem;
+}
+
+.search_container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    width: 100%;
+}
+
+.search_input {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid #ff9f1c;
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    font-family: 'poppins', sans-serif;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.search_input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search_input:focus {
+    border-color: #ffbf69;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 20px rgba(255, 159, 28, 0.3);
+    transform: scale(1.02);
+}
+
+.no_results {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    padding: 4rem;
+    font-style: italic;
 }
 
 .menu_foods img{
@@ -82,7 +124,7 @@
         row-gap: 4rem;
     }
 
-    .menu h1 {
+    .title_category {
         font-size: 2rem; 
     }
 
