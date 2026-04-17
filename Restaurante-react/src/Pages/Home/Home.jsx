@@ -4,13 +4,16 @@ import Hero from '/src/Components/Hero/Hero'
 import Specialties from '/src/Components/Specialties/Specialties'
 import Tips from '/src/Components/Tips/Tips'
 import About from '/src/Components/About/About'
+import Experiences from '/src/Components/Experiences/Experiences'
 import Footer from '/src/Components/Footer/Footer'
 
-export const Home = () => {
+export const Home = () => 
+{
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
+    if (location.hash) 
+    {
       const element = document.getElementById(location.hash.substring(1));
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -26,6 +29,7 @@ export const Home = () => {
         <Specialties></Specialties>
         <Tips></Tips>
         <About></About>
+        <Experiences></Experiences>
         <Footer></Footer>
   </>
   )
