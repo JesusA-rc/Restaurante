@@ -62,6 +62,7 @@ const Header = ({typeNavegation}) => {
             </li>) : ''
         }
         <li><NavLink to="/menu" className="navlink">Menu</NavLink></li>
+        <li><NavLink to="/franchises" className="navlink">Franchises</NavLink></li>
       </ul>
     </div>
   )
