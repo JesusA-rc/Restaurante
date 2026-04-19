@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id_category   Int     @id @default(autoincrement())
+  name_category String  @db.VarChar(50)
+  image_url     String? @db.Text
+  visible       Boolean
+  foods         foods[]
+}
+
+model countries {
+  id_pais      Int     @id @default(autoincrement())
+  name_country String  @db.VarChar(30)
+}
+
+model foods {
+  id_food     Int     @id @default(autoincrement())
+  name        String  @db.VarChar(100)
+  price       Decimal @db.Decimal(10, 2)
+  description String? @db.Text
+  image_url   String? @db.Text
+  id_category Int
+  pais        String     @db.VarChar(30)
+
+  category    categories @relation(fields: [id_category], references: [id_category])
+
+  @@index([id_category], map: "id_category")
+}
+
+
