@@ -45,6 +45,14 @@ Vista las comidas por categoria.
 
 <img width="380" height="842" alt="image" src="https://github.com/user-attachments/assets/cd5a9add-80bb-4058-b9dc-2cfa6c07c6d6" />
 
+Opiniones.
+<img width="1820" height="863" alt="image" src="https://github.com/user-attachments/assets/2b959d31-77dc-446d-8305-c0a7939e3830" />
+<img width="372" height="747" alt="image" src="https://github.com/user-attachments/assets/5d1a1087-2b0a-4700-be97-5b4d419e0e97" />
+
+Franquicias.
+<img width="1823" height="856" alt="image" src="https://github.com/user-attachments/assets/93e81401-9b09-46d9-9ab8-92d897ab5f2b" />
+<img width="370" height="736" alt="image" src="https://github.com/user-attachments/assets/64b66bc4-2acd-4ddc-9f0f-2c9c3b0643d5" />
+
 
 Footer.
 
