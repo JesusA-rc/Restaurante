@@ -8,10 +8,20 @@ import { fetchData } from '/src/config.js';
 import FoodItem from '/src/Components/FoodItem/FoodItem';
 import FoodSkeleton from '/src/Components/FoodItem/FoodSkeleton';
 import FoodModalController from '../../Components/FoodModal/FoodModalController';
+import CartDrawer from '/src/Components/Cart/CartDrawer';
 
 export const MenuComidas = () => {
   const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const storedCart = localStorage.getItem('restaurantCart');
+      return storedCart ? JSON.parse(storedCart) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const idCategory = searchParams.get('id_category');
 
@@ -23,6 +33,56 @@ export const MenuComidas = () => {
   useEffect(() => {
     window.scrollTo(0, 0);  
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('restaurantCart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const handleAddToCart = (food, quantity = 1) => {
+    const cartFood = {
+      id_food: food.id_food,
+      name: food.name,
+      price: Number(food.rawPrice ?? food.price),
+      image_url: food.image_url,
+    };
+
+    setCartItems((currentItems) => {
+      const existingItem = currentItems.find((item) => item.id_food === cartFood.id_food);
+
+      if (existingItem) {
+        return currentItems.map((item) =>
+          item.id_food === cartFood.id_food
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      }
+
+      return [...currentItems, { ...cartFood, quantity }];
+    });
+    setIsCartOpen(true);
+  };
+
+  const handleIncreaseItem = (idFood) => {
+    setCartItems((currentItems) =>
+      currentItems.map((item) =>
+        item.id_food === idFood ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const handleDecreaseItem = (idFood) => {
+    setCartItems((currentItems) =>
+      currentItems
+        .map((item) =>
+          item.id_food === idFood ? { ...item, quantity: item.quantity - 1 } : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  };
+
+  const handleRemoveItem = (idFood) => {
+    setCartItems((currentItems) => currentItems.filter((item) => item.id_food !== idFood));
+  };
 
   const filteredFoods = useMemo(() => {
     if (!foodsData || !idCategory) return [];
@@ -55,7 +115,7 @@ export const MenuComidas = () => {
               />
             </div>
 
-            <FoodModalController>
+            <FoodModalController onAddToCart={handleAddToCart}>
               {(handleFoodClick) => (
                 <div className={styles.menu_foods}>
                   {isLoading ? (
@@ -68,6 +128,7 @@ export const MenuComidas = () => {
                         key={item.id_food}
                         item={item}
                         handleFoodClick={handleFoodClick}
+                        onAddToCart={handleAddToCart}
                       />
                     ))
                   ) : (
@@ -77,6 +138,15 @@ export const MenuComidas = () => {
               )}
             </FoodModalController>
         </div>
+        <CartDrawer
+          cartItems={cartItems}
+          isOpen={isCartOpen}
+          onToggle={() => setIsCartOpen((currentState) => !currentState)}
+          onIncrease={handleIncreaseItem}
+          onDecrease={handleDecreaseItem}
+          onRemove={handleRemoveItem}
+          onClear={() => setCartItems([])}
+        />
      
         <Footer></Footer>
     </>

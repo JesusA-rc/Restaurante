@@ -55,7 +55,7 @@ const Franchises = () =>
       <main className={styles.main}>
         <section className={styles.hero}>
           <h1>Our Global Presence</h1>
-          <p>Bringing the world's most authentic flavors to your neighborhood.</p>
+          <p>Bringing the worlds most authentic flavors to your neighborhood.</p>
         </section>
 
         <section className={styles.grid}>

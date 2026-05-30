@@ -3,7 +3,7 @@ import styles from '../../Pages/MenuComidas/MenuComidas.module.css';
 import { useOnScreen } from "/src/Components/useOnScreen/useOnScreen";
 import PropTypes from 'prop-types';
 
-const FoodItem = ({ item, handleFoodClick }) => {
+const FoodItem = ({ item, handleFoodClick, onAddToCart }) => {
   const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
 
@@ -24,6 +24,16 @@ const FoodItem = ({ item, handleFoodClick }) => {
       <div className={styles.food_info}>
         <span className={styles.food_name}>{item.name} | ${item.price}</span>
         <span className={styles.food_desc}>{item.description}</span>
+        <button
+          type="button"
+          className={styles.add_button}
+          onClick={(event) => {
+            event.stopPropagation();
+            onAddToCart(item);
+          }}
+        >
+          Agregar
+        </button>
       </div>
     </div>
   );
@@ -33,11 +43,12 @@ FoodItem.propTypes = {
     item: PropTypes.shape({
       id_food: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
+      price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
       description: PropTypes.string.isRequired,
       image_url: PropTypes.string.isRequired,
     }).isRequired,
     handleFoodClick: PropTypes.func.isRequired,
+    onAddToCart: PropTypes.func.isRequired,
   };
 
 export default FoodItem;

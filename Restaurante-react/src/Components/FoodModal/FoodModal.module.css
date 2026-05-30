@@ -124,6 +124,54 @@
     color: #666;
 }
 
+.orderActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid #eeeeee;
+    padding-top: 1.2rem;
+}
+
+.quantityControl {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #dddddd;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.quantityControl button {
+    width: 2.4rem;
+    height: 2.4rem;
+    border: none;
+    background-color: #f4f4f4;
+    color: #222222;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.quantityControl span {
+    min-width: 2.6rem;
+    text-align: center;
+    color: #222222;
+    font-weight: 700;
+}
+
+.addToCartButton {
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff9f1c;
+    color: #111111;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .modalContent {
         padding: 1.5rem;
@@ -152,5 +200,14 @@
     .foodImageContainer {
         width: 200px;
         height: 200px;
+    }
+
+    .orderActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .quantityControl {
+        align-self: center;
     }
 }

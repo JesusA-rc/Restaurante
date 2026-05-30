@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import styles from './FoodModal.module.css';
 import PropTypes from 'prop-types';
 
-const FoodModal = ({ isOpen, onClose, foodItem }) => {
+const FoodModal = ({ isOpen, onClose, foodItem, onAddToCart }) => {
+  const [quantity, setQuantity] = useState(1);
+
   if (!isOpen) return null;
 
   return (
@@ -32,6 +35,34 @@ const FoodModal = ({ isOpen, onClose, foodItem }) => {
               <li><strong>Fat:</strong> {foodItem.nutrition.fat}</li>
             </ul>
           </div>
+          <div className={styles.orderActions}>
+            <div className={styles.quantityControl}>
+              <button
+                type="button"
+                onClick={() => setQuantity((currentQuantity) => Math.max(1, currentQuantity - 1))}
+              >
+                -
+              </button>
+              <span>{quantity}</span>
+              <button
+                type="button"
+                onClick={() => setQuantity((currentQuantity) => currentQuantity + 1)}
+              >
+                +
+              </button>
+            </div>
+            <button
+              type="button"
+              className={styles.addToCartButton}
+              onClick={() => {
+                onAddToCart(foodItem, quantity);
+                onClose();
+                setQuantity(1);
+              }}
+            >
+              Agregar al pedido
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -42,10 +73,13 @@ FoodModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   foodItem: PropTypes.shape({
+    id_food: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
+    rawPrice: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
+    image_url: PropTypes.string.isRequired,
     rating: PropTypes.string.isRequired,
     nutrition: PropTypes.shape({
       protein: PropTypes.string.isRequired,
@@ -53,6 +87,7 @@ FoodModal.propTypes = {
       fat: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  onAddToCart: PropTypes.func.isRequired,
 };
 
 export default FoodModal;
